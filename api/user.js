@@ -11,11 +11,11 @@ router.post("/login",function(req,res,next){
     var email = req.body.email;
     var password = req.body.password;
     userModel.find({email:email})
-    .exec()
+    // .exec()
     .then(user=>{
         if(user.length<1){
             res.status(404).json({
-                message:"Authentication Failure",
+                message:"Authenticatio Failure",
             }); 
 
         }else{
@@ -27,7 +27,8 @@ router.post("/login",function(req,res,next){
                 }
                 if(result){
 
-            //  var token = jwt.sign(
+     
+                    //  var token = jwt.sign(
             //             {
             //                 username:user[0].username,
             //                 userid:user[0]._id
@@ -46,7 +47,7 @@ router.post("/login",function(req,res,next){
                 }
                 else{
                     res.status(404).json({
-                        message:"Authentication Failure",
+                        message:"Authe Failure",
                     }); 
                 }
             });
@@ -72,7 +73,7 @@ router.post("/signup",function(req,res,next){
             message:"Password not matched!!!!!!",
         });
     }else{
-        bcrypt.hash(password, 10, function(err, hash) {
+        bcrypt.hash(password, 0, function(err, hash) {
             if(err){
                 return res.json({
                     message:"Something wrong ,please try again later!",
