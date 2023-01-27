@@ -6,7 +6,7 @@ var userModel = require('../modules/user');
 const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
-router.post("/login",function(req,res,next){
+router.post("/login",function(req,res){
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
@@ -62,7 +62,7 @@ router.post("/login",function(req,res,next){
     })
 });
 
-router.post("/signup",function(req,res,next){
+router.post("/signup",function(req,res){
     var username = req.body.username;
      console.log(username);
     var email = req.body.email;
